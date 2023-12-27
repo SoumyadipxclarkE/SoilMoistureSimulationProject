@@ -1,2 +1,32 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+/*Generate a random value between 0 and 1023 and 
+calculate moisture percentage based on the generated value*/
+
+import java.util.Random;
+
+public class SoilMoistureSimulation {
+    public static void main(String[] args) {
+        
+        simulateSoilMoisture();
+    }
+
+    public static void simulateSoilMoisture() {
+        Random rand = new Random();
+        // Simulate continuous monitoring
+        while (true) {
+
+            int sensorValue = rand.nextInt(1024);
+
+            double moisture = (sensorValue / 1023.0) * 100.0;
+
+
+            System.out.println("Simulated Moisture Percentage = " + moisture + "%");
+
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
